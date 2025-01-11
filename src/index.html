@@ -1,28 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+    <div id="login-overlay" class="login-overlay">
+        <div class="minecraft-login-container">
+            <h2>Login</h2>
+            <div class="mine
+            
+            craft-input-group">
+                <input type="text" id="username" placeholder="Username" class="minecraft-input">
+            </div>
+            <div class="minecraft-input-group">
+                <input type="password" id="password" placeholder="Password" class="minecraft-input">
+            </div>
+            <div class="login-fail displayy" id="login-fail">
+                <p>Username cannot contain spaces or special character other than !,@,#,$</p>
+                <p>Password must contain at least 4 characters</p>
+            </div>
+            <button id="login-button" class="minecraft-button2">
+                <span class="button-face">
+                    <span class="button-text">Login</span>
+                </span>
+            </button>
+        </div>
+    </div>
     <div class="container">
 
-        <div class="heading">  
-            <h1>TODO APP</h1> 
+        <div class="heading">
+            <h1>TODO APP</h1>
         </div>
         <div class="hero">
             <div class="Left-container">
                 <input type="text" id="task-input" placeholder="Whats on your mind...?">
-                <div tabindex="0" class="plusButton" id="addBtn">
-                    <svg class="plusIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-                      <g mask="url(#mask0_21_345)">
-                        <path d="M13.75 23.75V16.25H6.25V13.75H13.75V6.25H16.25V13.75H23.75V16.25H16.25V23.75H13.75Z"></path>
-                      </g>
-                    </svg>
-                  </div>
-    
+                <button class="minecraft-button" id="addBtn">
+                    <span class="button-face">
+                        <span class="button-text">+</span>
+                    </span>
+                </button>
+
             </div>
             <div class="right-container">
                 <div class="task-heading">
@@ -33,9 +55,10 @@
             </div>
         </div>
 
-        
+
 
     </div>
     <script src="index.js"></script>
 </body>
+
 </html>

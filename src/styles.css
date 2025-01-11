@@ -17,8 +17,10 @@ body {
 
 }
 
+
+
 .container {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     width: 100%;
     height: 100vh;
     display: grid;
@@ -26,25 +28,32 @@ body {
 
 }
 .hero{
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     display: grid;
     max-height: 80vh;
     grid-template-columns: 2fr 2fr;
 }
-.heading{
-    border: 2px solid black;
-    padding: 1em;
-    display: flex; 
-    letter-spacing: 7px;
-    place-content: center;
-
+.heading {
+  padding: 1em;
+  display: flex;
+  letter-spacing: 7px;
+  place-content: center;
+  text-shadow: 2px 2px #3f3f3f, 
+              -2px -2px #3f3f3f, 
+              2px -2px #3f3f3f, 
+              -2px 2px #3f3f3f;
 }
+
 .heading h1 {
-  font-size : 4em ;
-  font-weight: 200;
+  font-family: 'MinecraftiaRegular', 'Minecraft', monospace; /* Add Minecraft font */
+  font-size: 4em;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  animation: minecraft-float 2s infinite ease-in-out;
 }
 .Left-container{
-    border: 2px solid cyan;
+    /* border: 2px solid cyan; */
     display: flex;
     max-height: 80vh;
     padding: 1em;
@@ -56,125 +65,222 @@ body {
 
 }
 .right-container{
-    border :  2px solid yellow ;
+    /* border :  2px solid yellow ; */
     max-height: 80vh;
     display: grid; 
     grid-template-rows: 1fr 8fr;
     
 }
-.task-heading{
-    border: 2px solid cadetblue;
-    text-align: center; 
-    padding: 1em;
-    letter-spacing: 0.5pc;
+.task-heading {
+  text-align: center;
+  padding: 1em;
+  letter-spacing: 0.5pc;
 }
+
 .task-heading h2 {
-    font-size: 2.4em;
-    font-weight: 100;
-    
+  font-family: 'MinecraftiaRegular', 'Minecraft', monospace;
+  font-size: 2.4em;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-shadow: 2px 2px #3f3f3f,
+              -2px -2px #3f3f3f,
+              2px -2px #3f3f3f,
+              -2px 2px #3f3f3f;
 }
+@keyframes minecraft-float {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-6px);
+  }
+}
+
+/* Optional: Hover effects for interactivity */
+
 .tasks {
-    border: 2px solid purple;
+    /* border: 2px solid purple; */
     padding: 1em;
     max-height: 100%;
     overflow-y:scroll;
     
 }
-#task-input{
-    width: 70%; 
-    height : 3em ;
-    padding: 1em; 
-    font-size: 1.4em;
-    font-weight: 100;
-    color: #000000;
+#task-input:hover {
+  background-color: #D5D5D5;
+}
+#task-input {
+  width: 70%;
+  height: 3em;
+  padding: 1em;
+  font-size: 1.4em;
+  font-family: 'MinecraftiaRegular', 'Minecraft', monospace;
+  color: #404040;
+  background-color: #C6C6C6;
+  border: 3px solid #404040;
+  border-radius: 0;
+  box-shadow: inset -3px -3px 0 #8B8B8B,
+              inset 3px 3px 0 #FFFFFF;
+}
+
+#task-input:focus {
+  outline: 2px solid #FFF;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
 }
 .task-checkbox{
     margin-right: 1em;
     
 }
-.todo-tasks{
-  /* border: 4px solid red; */
+.todo-tasks {
+  font-family: 'MinecraftiaRegular', monospace;
   font-size: 2em;
-  margin : 5px 0px 10px 0px ;
+  margin: 5px 0px 10px 0px;
   letter-spacing: 1px;
-  font-weight: 100;
-
-  
+  color: #FFFFFF;
+  text-shadow: 2px 2px #3f3f3f,
+              -2px -2px #3f3f3f,
+              2px -2px #3f3f3f,
+              -2px 2px #3f3f3f;
+  /* Minecraft-style hover effect */
+  transition: transform 0.2s ease;
 }
-.task-row{
+
+.task-row {
   display: flex;
-  margin-bottom: 4px;
-
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 8px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 2px solid #3f3f3f;
+  /* Minecraft-style inset effect */
+  box-shadow: inset 2px 2px rgba(255, 255, 255, 0.1),
+              inset -2px -2px rgba(0, 0, 0, 0.3);
 }
 
+/* Hover effect for task rows */
+.task-row:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(4px);
+  cursor: pointer;
+}
+
+/* If you want to style completed tasks differently */
+.task-row.completed {
+  opacity: 0.7;
+  text-decoration: line-through;
+  color: #A0A0A0;
+}
+
+/* Animation for new tasks */
+@keyframes taskAppear {
+  from {
+      transform: translateY(-10px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+/* Apply animation to new tasks */
+.task-row {
+  animation: taskAppear 0.3s ease-out;
+}
 
 
 
 
 /* From Uiverse.io by OnCloud125252 */ 
 /* Note that you only needs to edit the config to customize the button! */
+.minecraft-button {
+  position: relative;
+  display: inline-block;
+  min-width: 64px;
+  height: 64px;
+  margin: 2em;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  font-family: 'MinecraftiaRegular', monospace;
+}
 
-.plusButton  {
-    /* Config start */
-    --plus_sideLength: 2.5rem;
-    --plus_topRightTriangleSideLength: 0.9rem;
-    /* Config end */
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid rgb(219, 219, 219);
-    width: var(--plus_sideLength);
-    height: var(--plus_sideLength);
-    background-color: #000000;
-    overflow: hidden;
-    margin-top: 2em;
-  }
-  
-  .plusButton::before {
-    position: absolute;
-    content: "";
-    top: 0;
-    right: 0;
-    width: 0;
-    height: 0;
-    border-width: 0 var(--plus_topRightTriangleSideLength) var(--plus_topRightTriangleSideLength) 0;
-    border-style: solid;
-    border-color: transparent white transparent transparent;
-    transition-timing-function: ease-in-out;
-    transition-duration: 0.2s;
-  }
-  
-  .plusButton:hover {
-    cursor: pointer;
-  }
-  
-  .plusButton:hover::before {
-    --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 2);
-  }
-  
-  .plusButton:focus-visible::before {
-    --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 2);
-  }
-  
-  .plusButton>.plusIcon {
-    fill: white;
-    width: calc(var(--plus_sideLength) * 0.7);
-    height: calc(var(--plus_sideLength) * 0.7);
-    z-index: 1;
-    transition-timing-function: ease-in-out;
-    transition-duration: 0.2s;
-  }
-  
-  .plusButton:hover>.plusIcon {
-    fill: black;
-    transform: rotate(180deg);
-  }
-  
-  .plusButton:focus-visible>.plusIcon {
-    fill: black;
-    transform: rotate(180deg);
-  }
+.button-face {
+  position: relative;
+  display: block;
+  padding: 6px;
+  background-color: #727272;
+  border: 2px solid #000;
+  width: 100%;
+  height: 100%;
+}
+
+/* Creating the 3D effect with pseudo-elements */
+.button-face::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #8B8B8B;
+  border: 4px solid #373737;
+}
+
+.button-face::after {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+  background-color: #727272;
+  border: 2px solid #373737;
+}
+
+.button-text {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 32px;
+  color: #FFFFFF;
+  text-shadow: 2px 2px #000000;
+  z-index: 1;
+}
+
+/* Hover state */
+.minecraft-button:hover .button-face::before {
+  background-color: #989898;
+}
+
+.minecraft-button:hover .button-text {
+  color: #FFFFA0;
+}
+
+/* Active/Pressed state */
+.minecraft-button:active .button-face {
+  transform: translateY(2px);
+}
+
+.minecraft-button:active .button-face::before,
+.minecraft-button:active .button-face::after {
+  background-color: #616161;
+}
+
+/* Disable outline but keep it accessible */
+.minecraft-button:focus-visible {
+  outline: 2px solid #FFF;
+  outline-offset: 2px;
+}
+
+/* Optional: Add click sound effect */
+.minecraft-button:active {
+  transform: scale(0.95);
+}
 
  /* For checkbox */
 
@@ -643,4 +749,82 @@ body {
 .container2 input:checked ~ .torch .side div {
   filter: brightness(1.3);
   box-shadow: inset 0 0 5px rgba(255, 183, 43, 0.2);
+}
+
+
+
+/* Login overlay */ 
+
+.login-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.minecraft-login-container {
+  background-color: #C6C6C6;
+  padding: 20px;
+  border: 3px solid #000000;
+  box-shadow: inset -3px -3px 0 #8B8B8B,
+              inset 3px 3px 0 #FFFFFF;
+  width: 300px;
+}
+
+.minecraft-login-container h2 {
+  font-family: 'MinecraftiaRegular', monospace;
+  color: #404040;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-shadow: 2px 2px #8B8B8B;
+}
+
+.minecraft-input-group {
+  margin-bottom: 15px;
+}
+
+.minecraft-input {
+  width: 100%;
+  padding: 8px;
+  font-family: 'MinecraftiaRegular', monospace;
+  font-size: 16px;
+  background-color: #8B8B8B;
+  border: 2px solid #404040;
+  color: #FFFFFF;
+  box-shadow: inset -2px -2px 0 #404040,
+              inset 2px 2px 0 #404040;
+}
+
+.minecraft-input:focus {
+  outline: 2px solid #FFFFFF;
+  background-color: #A0A0A0;
+}
+
+/* Reusing the minecraft-button styles from before, but adding specific login button styles */
+.minecraft-button2 {
+  width: 100%;
+  margin-top: 20px;
+}
+
+
+.login-fail{
+  font-family: 'MinecraftiaRegular', monospace;
+  color :  red ;
+  font-size: small; 
+  padding : 1em ;
+}
+.login-fail p {
+  font-family: 'MinecraftiaRegular', monospace;
+  color: rgb(249, 47, 47);
+  font-weight: 700;
+}
+.displayy{
+  display: none;
 }
